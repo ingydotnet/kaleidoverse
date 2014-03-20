@@ -2,13 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <script type="text/javascript">
-            if (location.protocol !== 'https:')
-            window.location.href = "https://veradox.github.io/kaleidoverse"
-        </script>
         <title>Kaleidoverse</title>
     </head>
     <body>
-        <h1>Kaleidoverse</h1>
+        <div class="primary-content"></div>
+        <script src='http://cdn.jsdelivr.net/jquery/2.1.0/jquery.js'></script>
+        <!-- script src='http://cdn.jsdelivr.net/jquery.url.parser/2.3.1/purl.js'></script -->
+        <script src='http://cdn.jsdelivr.net/jquery.cookie/1.4.0/jquery.cookie.js'></script>
+
+        <script src='js/jemplate.js'></script>
+        <script src='js/kaleidoverse.js'></script>
+        <script>$(document).ready(kaleidoverse())</script>
     </body>
 </html>
