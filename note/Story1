@@ -1,0 +1,29 @@
+User Story #1
+=============
+
+This is an initial story for setting up the most rudimentary kaleidoverse:
+
+* User browses to https://$name.github.io/kaleidoverse
+  * $name starts with veradox, but can be any fork
+  * $name is the "owner" of the kaleidoverse (ko)
+* User sees a login screen
+  * (Login via GitHub) button
+* User clicks button
+* User goes to login screen
+  * Enter token (help explanation/link) to get token
+  * Enter user login
+  * System verifies these and logs in (stores in cookie)
+* User is inside the ko (front page)
+  * Maybe a 3d scenario of veradox ($name) assets
+    * Avatar of $login user
+  * An ominous fork is lying on the ground
+* User picks up the fork and forks the ko
+  * Or clicks a "fork the ko" link :)
+  * Confirmation explains a bit and user clicks OK
+  * System does fork and register to https://$user.github.io/kaleidoverse
+    * Can take 10 minutes
+    * User sees a spinner off to the side
+  * User plays around with fun 3d stuff, while the setup happens
+    * Good time for tutorials
+* Fork is done and user teleports (clicks link) to their new kaleidoverse
+

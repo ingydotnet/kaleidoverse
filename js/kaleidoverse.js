@@ -5,32 +5,36 @@
   window.Kaleidoverse = Kaleidoverse = (function() {
     function Kaleidoverse() {
       $.cookie.json = true;
+      this.github_owner = 'veradox';
+      this.github_repo = 'kaleidoverse';
     }
 
     Kaleidoverse.prototype.run = function() {
       var login;
       login = $.cookie('login');
       if (login) {
-        return this.display_main(login);
+        this.display('main', {
+          'login': login
+        });
+        return this.github = new Github({
+          token: login.auth_token,
+          auth: "oauth"
+        });
       } else {
-        return this.display_login();
+        if ($.url().param('code')) {
+          alert(String($.url()));
+        }
+        return this.display('login');
       }
     };
 
-    Kaleidoverse.prototype.display_main = function(login) {
-      var data;
-      data = {
-        'login': login
-      };
-      return $('.primary-content').html(Jemplate.process('main.html', data));
-    };
-
-    Kaleidoverse.prototype.display_login = function() {
-      return $('.primary-content').html(Jemplate.process('login.html'));
+    Kaleidoverse.prototype.display = function(view, data) {
+      return $('.primary-content').html(Jemplate.process(view + '.html', data));
     };
 
     Kaleidoverse.prototype.do_login = function() {
       var login, token;
+      window.location = 'https://github.com/login/oauth/authorize?' + 'client_id=fdb1df3dcaddfef441ee;' + 'redirect_uri=https://veradox.github.io/kaleidoverse;' + 'state=unguessable_string';
       token = $("input[name$='token']").val();
       if (token) {
         login = {
@@ -48,6 +52,17 @@
         path: '/'
       });
       return this.run();
+    };
+
+    Kaleidoverse.prototype.do_fork = function() {
+      this.repo = this.github.getRepo(this.github_owner(this.github_repo));
+      return this.repo.fork(function(err) {
+        if (err) {
+          return console.log(err);
+        } else {
+          return alert("You Forked Me!");
+        }
+      });
     };
 
     return Kaleidoverse;
