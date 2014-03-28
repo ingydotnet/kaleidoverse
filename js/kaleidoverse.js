@@ -38,24 +38,11 @@
     };
 
     Kaleidoverse.prototype.do_token_login = function() {
-      var login, state, token;
+      var login, token;
       $('.errors').html('');
       token = $("input[name$='token']").val();
       login = $("input[name$='login']").val();
-      say("" + token + " -- " + login);
-      if (!token.match(/^\S{40}$/)) {
-        this.error("GitHub Auth Token value is required");
-      }
-      if (!(login.length > 0)) {
-        this.error("GitHub Login Id value is required");
-      }
-      state = {
-        token: token,
-        login: login
-      };
-      return $.cookie('state', state, {
-        path: '/'
-      });
+      return say("" + token + " -- " + login);
     };
 
     Kaleidoverse.prototype.do_logout = function() {

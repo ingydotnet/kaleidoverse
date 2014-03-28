@@ -30,13 +30,13 @@ window.Kaleidoverse = class Kaleidoverse
     token = $("input[name$='token']").val()
     login = $("input[name$='login']").val()
     say "#{token} -- #{login}"
-    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
-    @error "GitHub Login Id value is required" unless login.length > 0
-    state =
-      token: token
-      login: login
-    $.cookie 'state', state,
-      path: '/'
+#     @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+#     @error "GitHub Login Id value is required" unless login.length > 0
+#     state =
+#       token: token
+#       login: login
+#     $.cookie 'state', state,
+#       path: '/'
 
   do_logout: ->
     $.removeCookie 'state',
