@@ -20,3 +20,4 @@
 == Done
 + git filter-branch out bogus commits
   + Used this command: (set -ex; for c in 3959d77 2c430f4 a2c2850 c55fe7e e884a44;do git filter-branch -f --commit-filter 'if [ "$GIT_COMMIT" = "'"$(git rev-parse $c)"'" ]; then skip_commit "$@"; else git commit-tree "$@"; fi'; done)
+
