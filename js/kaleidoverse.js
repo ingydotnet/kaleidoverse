@@ -74,7 +74,7 @@
       this.repo = this.github.getRepo(this.github_owner, this.github_repo);
       return this.repo.fork(function(err) {
         if (err) {
-          say(err);
+          window.err = err;
           return _this.error(err.message);
         } else {
           $.colorbox.close();

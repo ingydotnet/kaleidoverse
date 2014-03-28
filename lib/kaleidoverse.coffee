@@ -51,7 +51,7 @@ window.Kaleidoverse = class Kaleidoverse
     @repo = @github.getRepo @github_owner, @github_repo
     @repo.fork (err)=>
       if err
-        say err
+        window.err = err
         @error err.message
       else
         $.colorbox.close()
