@@ -2021,7 +2021,7 @@ Jemplate.templateMap['token_login.html'] = function(context) {
     var output = '';
 
     try {
-output += 'GitHub Login ID: <input type="text" size="15" /><br>\nGitHub Auth Token: <input type="text" size="40" /><br>\n<button onclick="ko.do_token_login()">Login</button>\n<button onclick="alert(ko.do_token_login)">Login2</button>\n<button onclick="ko.do_logout.call(ko)">Log Out</button>\n\n<div class="errors" style="color:red"></div>\n';
+output += 'GitHub Login ID: <input type="text" size="15" /><br>\nGitHub Auth Token: <input type="text" size="40" /><br>\n<button onclick="ko.do_token_login.call(ko)">Login</button>\n<button onclick="alert(ko.do_token_login)">Login2</button>\n<button onclick="ko.do_logout.call(ko)">Log Out</button>\n\n<div class="errors" style="color:red"></div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
