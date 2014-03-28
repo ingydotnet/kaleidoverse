@@ -24,6 +24,7 @@ window.Kaleidoverse = class Kaleidoverse
       html: Jemplate.process "#{view}.html"
       height: '50%'
       width: '50%'
+      closeButton: false
 
   do_token_login: ->
     say "O HAI"
