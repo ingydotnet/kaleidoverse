@@ -2015,3 +2015,19 @@ output += '\n';
     return output;
 }
 
+Jemplate.templateMap['token_login.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += 'GitHub Login ID: <input type="text" size="15" /><br>\nGitHub Auth Token: <input type="text" size="40" /><br>\n<button onclick="ko.do_token_login">Login</button>\n<button>Cancel</button>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+

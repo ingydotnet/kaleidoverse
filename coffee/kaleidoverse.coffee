@@ -11,7 +11,7 @@ window.Kaleidoverse = class Kaleidoverse
       @display 'main',
         'state': @state
       @github = new Github
-        token: @state.auth_token
+        token: @state.token
         auth: "oauth"
     else
       @display 'login'
@@ -24,6 +24,13 @@ window.Kaleidoverse = class Kaleidoverse
       html: Jemplate.process "#{view}.html"
       height: '50%'
       width: '50%'
+
+  do_token_login: ->
+    state =
+      token: '1234567890'
+      login: ingydotnet
+    $.cookie 'state', state,
+      path: '/'
 
   do_logout: ->
     $.removeCookie 'state',

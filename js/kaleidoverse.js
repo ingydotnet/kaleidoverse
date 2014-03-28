@@ -17,7 +17,7 @@
           'state': this.state
         });
         return this.github = new Github({
-          token: this.state.auth_token,
+          token: this.state.token,
           auth: "oauth"
         });
       } else {
@@ -34,6 +34,17 @@
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
         width: '50%'
+      });
+    };
+
+    Kaleidoverse.prototype.do_token_login = function() {
+      var state;
+      state = {
+        token: '1234567890',
+        login: ingydotnet
+      };
+      return $.cookie('state', state, {
+        path: '/'
       });
     };
 
