@@ -61,6 +61,7 @@ window.Kaleidoverse = class Kaleidoverse
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse
+  say ko
   ko.run()
 
 # vim: set sw=2 lisp:
