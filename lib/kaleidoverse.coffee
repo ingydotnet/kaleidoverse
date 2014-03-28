@@ -49,13 +49,12 @@ window.Kaleidoverse = class Kaleidoverse
 
   do_fork: ->
     @repo = @github.getRepo @github_owner, @github_repo
-    self = this
-    @repo.fork (err)->
+    @repo.fork (err)=>
       if err
-        self.error err
+        @error err
       else
         $.colorbox.close()
-        self.log "Successfully forked '#{self.github_owner}/#{self.github_repo}'"
+        @log "Successfully forked '#{@github_owner}/#{@github_repo}'"
 
   clear_errors: ->
     $('.errors').html ''
