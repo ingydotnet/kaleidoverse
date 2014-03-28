@@ -23,7 +23,7 @@ window.Kaleidoverse = class Kaleidoverse
       html: Jemplate.process "#{view}.html", @state
       height: '50%'
       width: '50%'
-      closeButton: false
+#       closeButton: false
 
   do_token_login: ->
     @clear_errors()
