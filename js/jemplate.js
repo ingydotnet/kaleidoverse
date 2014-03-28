@@ -1930,7 +1930,7 @@ output += stash.get('login');
 output += '.github.io/kaleidoverse">http://';
 //line 4 "fork.html"
 output += stash.get('login');
-output += '.github.io/kaleidoverse</a>.\n</p>\n<button onclick="ko.do_fork()">Bravely fork this Kaleidoverse</button>\n<button onclick="ko.cancel_lightbox()">Wimp out</button>\n';
+output += '.github.io/kaleidoverse</a>.\n</p>\n<button onclick="ko.do_fork()">Bravely fork this Kaleidoverse</button>\n<button onclick="$.colorbox.close()">Wimp out</button>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

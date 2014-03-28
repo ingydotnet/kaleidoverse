@@ -13,9 +13,7 @@
     Kaleidoverse.prototype.run = function() {
       this.state = $.cookie('state');
       if (this.state) {
-        this.display('main', {
-          'state': this.state
-        });
+        this.display('main');
         return this.github = new Github({
           token: this.state.token,
           auth: "oauth"
@@ -25,13 +23,13 @@
       }
     };
 
-    Kaleidoverse.prototype.display = function(view, data) {
-      return $('.primary-content').html(Jemplate.process("" + view + ".html", data));
+    Kaleidoverse.prototype.display = function(view) {
+      return $('.primary-content').html(Jemplate.process("" + view + ".html", this.state));
     };
 
     Kaleidoverse.prototype.lightbox = function(view) {
       return $.colorbox({
-        html: Jemplate.process("" + view + ".html"),
+        html: Jemplate.process("" + view + ".html", this.state),
         height: '50%',
         width: '50%',
         closeButton: false

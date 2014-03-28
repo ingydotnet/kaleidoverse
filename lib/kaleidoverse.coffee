@@ -8,20 +8,19 @@ window.Kaleidoverse = class Kaleidoverse
   run: ->
     @state = $.cookie 'state'
     if @state
-      @display 'main',
-        'state': @state
+      @display 'main'
       @github = new Github
         token: @state.token
         auth: "oauth"
     else
       @display 'login'
 
-  display: (view, data)->
-    $('.primary-content').html Jemplate.process "#{view}.html", data
+  display: (view)->
+    $('.primary-content').html Jemplate.process "#{view}.html", @state
 
   lightbox: (view)->
     $.colorbox
-      html: Jemplate.process "#{view}.html"
+      html: Jemplate.process "#{view}.html", @state
       height: '50%'
       width: '50%'
       closeButton: false
