@@ -42,6 +42,7 @@
       $('.errors').html('');
       token = $("input[name$='token']").val();
       login = $("input[name$='login']").val();
+      say("" + token + " -- " + login);
       if (!token.match(/^\S{40}$/)) {
         this.error("GitHub Auth Token value is required");
       }
