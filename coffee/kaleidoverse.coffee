@@ -25,7 +25,6 @@ window.Kaleidoverse = class Kaleidoverse
       height: '50%'
       width: '50%'
       closeButton: false
-    say @colorbox
 
   do_login: ->
     $('.errors').html ''
@@ -50,12 +49,12 @@ window.Kaleidoverse = class Kaleidoverse
     @repo = @github.getRepo @github_owner @github_repo
     @repo.fork (err)->
       if err
-        console.log err
+        say err
       else
         alert "You Forked Me!"
 
   error: (message)->
-    $('.errors').append "<p>#{message}</p>"
+    $('.errors').append "<p>Error: #{message}</p>"
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse

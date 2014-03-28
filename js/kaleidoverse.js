@@ -30,13 +30,12 @@
     };
 
     Kaleidoverse.prototype.lightbox = function(view) {
-      this.colorbox = $.colorbox({
+      return this.colorbox = $.colorbox({
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
         width: '50%',
         closeButton: false
       });
-      return say(this.colorbox);
     };
 
     Kaleidoverse.prototype.do_login = function() {
@@ -72,7 +71,7 @@
       this.repo = this.github.getRepo(this.github_owner(this.github_repo));
       return this.repo.fork(function(err) {
         if (err) {
-          return console.log(err);
+          return say(err);
         } else {
           return alert("You Forked Me!");
         }
@@ -80,7 +79,7 @@
     };
 
     Kaleidoverse.prototype.error = function(message) {
-      return $('.errors').append("<p>" + message + "</p>");
+      return $('.errors').append("<p>Error: " + message + "</p>");
     };
 
     return Kaleidoverse;
