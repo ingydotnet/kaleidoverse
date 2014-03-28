@@ -40,23 +40,27 @@
 
     Kaleidoverse.prototype.do_token_login = function() {
       var login, state, token;
-      $('.errors').html('');
-      token = $("input[name$='token']").val() || '';
+      this.clear();
       login = $("input[name$='login']").val() || '';
-      say("1 token: " + token + " -- login: " + login);
-      if (!token.match(/^\S{40}$/)) {
-        this.error("GitHub Auth Token value is required");
-      }
+      token = $("input[name$='token']").val() || '';
       if (!(login.length > 0)) {
         this.error("GitHub Login Id value is required");
       }
-      state = {
-        token: token,
-        login: login
-      };
-      return $.cookie('state', state, {
-        path: '/'
-      });
+      if (!token.match(/^\S{40}$/)) {
+        this.error("GitHub Auth Token value is required");
+      }
+      if (this.errors) {
+        return $("button[name$='login']").click(this.do_token_login);
+      } else {
+        $.colorbox.close();
+        state = {
+          token: token,
+          login: login
+        };
+        return $.cookie('state', state, {
+          path: '/'
+        });
+      }
     };
 
     Kaleidoverse.prototype.do_logout = function() {
@@ -78,8 +82,14 @@
       });
     };
 
+    Kaleidoverse.prototype.clear = function() {
+      $('.errors').html('');
+      return this.errors = false;
+    };
+
     Kaleidoverse.prototype.error = function(message) {
-      return $('.errors').append("<p>Error: " + message + "</p>");
+      $('.errors').append("<p>Error: " + message + "</p>");
+      return this.errors = true;
     };
 
     return Kaleidoverse;

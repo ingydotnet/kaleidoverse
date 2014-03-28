@@ -28,17 +28,21 @@ window.Kaleidoverse = class Kaleidoverse
 
 
   do_token_login: ->
-    $('.errors').html ''
-    token = $("input[name$='token']").val() || ''
+    @clear()
     login = $("input[name$='login']").val() || ''
-    say "1 token: #{token} -- login: #{login}"
-    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+    token = $("input[name$='token']").val() || ''
     @error "GitHub Login Id value is required" unless login.length > 0
-    state =
-      token: token
-      login: login
-    $.cookie 'state', state,
-      path: '/'
+    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+    if @errors
+      $("button[name$='login']").click @do_token_login
+    else
+      $.colorbox.close()
+      state =
+        token: token
+        login: login
+      $.cookie 'state', state,
+        path: '/'
+
 
   do_logout: ->
     $.removeCookie 'state',
@@ -54,8 +58,13 @@ window.Kaleidoverse = class Kaleidoverse
       else
         alert "You Forked Me!"
 
+  clear: ->
+    $('.errors').html ''
+    @errors = false
+
   error: (message)->
     $('.errors').append "<p>Error: #{message}</p>"
+    @errors = true
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse
