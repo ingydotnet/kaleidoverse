@@ -1,6 +1,5 @@
-<div class="main">
-    <h1>Welcome to Kaleidoverse</h1>
-
-    <button onclick="ko.do_login()">Log In via GitHub</button>
-</div>
-
+[% WRAP layout.html %]
+<button onclick="ko.lightbox('token_login')">GitHub Token Login</button><br/>
+<button onclick="alert('This login method is not ready yet')">GitHub OAuth2 Login</button>
+<button onclick="alert('This login method is not ready yet')">Google OAuth2 Login</button>
+[% END %]

@@ -1,48 +1,29 @@
 window.Kaleidoverse = class Kaleidoverse
   constructor: ->
+    window.say = console.log
     $.cookie.json = true
     @github_owner = 'veradox'
     @github_repo = 'kaleidoverse'
-    window.say = console.log
+    @state = $.cookie 'state'
 
   run: ->
-    login = $.cookie 'login'
-    if login
+    if @state
       @display 'main',
-        'login': login
+        'state': @state
       @github = new Github
-        token: login.auth_token
+        token: @state.auth_token
         auth: "oauth"
     else
-      if $.url().param('code')
-        @finish_login()
-      else
-        @display 'login'
+      @display 'login'
 
   display: (view, data)->
     $('.primary-content').html Jemplate.process view + '.html', data
 
-  do_login: ->
-    window.location =
-      'https://github.com/login/oauth/authorize?' +
-      'client_id=fdb1df3dcaddfef441ee;' +
-      'redirect_uri=https://veradox.github.io/kaleidoverse;' +
-      'state=unguessable_string'
-    url
-    window.location =
-
-  finish_login: ->
-    
-#     token = $("input[name$='token']").val()
-#     if token
-#       login =
-#         auth_token: token
-#       $.cookie 'login', login,
-#         path: '/'
-#       @run()
+  lightbox: (name)->
+    $.colorbox({html:"<h1>Welcome #{name}</h1>"})
 
   do_logout: ->
-    $.removeCookie 'login',
+    $.removeCookie 'state',
       path: '/'
     @run()
 

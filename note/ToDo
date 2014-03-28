@@ -7,11 +7,7 @@
 - Find an in-browser-only terminal
 
 == Cards
-- Fork and launch https://ingydotnet.github.io/kaleidoverse (from veradox)
-  - or http://ingydotnet.github.io/kaleidoverse
-- Delete master branch
 - Find lightbox jquery plugin
-- Figure out https
 
 == diakopter
 - Delete remote master branch of origin for veradox/kaleidoverse
@@ -20,4 +16,6 @@
 == Done
 + git filter-branch out bogus commits
   + Used this command: (set -ex; for c in 3959d77 2c430f4 a2c2850 c55fe7e e884a44;do git filter-branch -f --commit-filter 'if [ "$GIT_COMMIT" = "'"$(git rev-parse $c)"'" ]; then skip_commit "$@"; else git commit-tree "$@"; fi'; done)
-
++ Fork and launch https://ingydotnet.github.io/kaleidoverse (from veradox)
+x Figure out https
+  x https://ingydotnet.github.io/kaleidoverse seems to just redirect to http://ingydotnet.github.io/kaleidoverse
