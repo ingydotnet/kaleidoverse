@@ -20,7 +20,7 @@ window.Kaleidoverse = class Kaleidoverse
     $('.primary-content').html Jemplate.process "#{view}.html", data
 
   lightbox: (view)->
-    @colorbox = $.colorbox
+    $.colorbox
       html: Jemplate.process "#{view}.html"
       height: '50%'
       width: '50%'

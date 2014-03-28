@@ -30,7 +30,7 @@
     };
 
     Kaleidoverse.prototype.lightbox = function(view) {
-      return this.colorbox = $.colorbox({
+      return $.colorbox({
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
         width: '50%',
