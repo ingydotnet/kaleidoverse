@@ -40,7 +40,24 @@
     };
 
     Kaleidoverse.prototype.do_login = function() {
-      return say("O HAI");
+      var login, state, token;
+      $('.errors').html('');
+      token = $("input[name$='token']").val();
+      login = $("input[name$='login']").val();
+      say("token: " + token + " -- login: " + login);
+      if (!token.match(/^\S{40}$/)) {
+        this.error("GitHub Auth Token value is required");
+      }
+      if (!(login.length > 0)) {
+        this.error("GitHub Login Id value is required");
+      }
+      state = {
+        token: token,
+        login: login
+      };
+      return $.cookie('state', state, {
+        path: '/'
+      });
     };
 
     Kaleidoverse.prototype.do_logout = function() {
@@ -72,7 +89,6 @@
 
   window.kaleidoverse = function() {
     window.ko = new Kaleidoverse;
-    console.log(ko);
     return ko.run();
   };
 

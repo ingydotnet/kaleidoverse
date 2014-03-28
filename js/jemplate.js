@@ -2001,7 +2001,7 @@ output += stash.get(['state', 0, 'auth_token', 0]);
 output += '</tt></b>.</p>\n<p>Try the following:</p>\n<ul>\n    <li><a href="#" onclick="ko.lightbox(\'fork\')">Fork the entire Kaleidoverse!</a></li>\n    <li><a href="https://';
 //line 6 "main.html"
 output += stash.get(['state', 0, 'login', 0]);
-output += '.github.com/kaleidoverse">Teleport to your own Kaleidoverse!</a></li>\n</ul>\n<br/>\n<button onclick="ko.do_logout">Log Out</button>\n';;
+output += '.github.com/kaleidoverse">Teleport to your own Kaleidoverse!</a></li>\n</ul>\n<br/>\n<button onclick="ko.do_logout()">Log Out</button>\n';;
     return context.include('layout.html', { 'content': output });
 })();
 
@@ -2021,7 +2021,7 @@ Jemplate.templateMap['token_login.html'] = function(context) {
     var output = '';
 
     try {
-output += 'GitHub Login ID: <input type="text" size="15" /><br>\nGitHub Auth Token: <input type="text" size="40" /><br>\n<button onclick="alert(ko.do_login)">Login2</button>\n<button onclick="ko.do_logout()">Log Out</button>\n<button onclick="ko.do_login()">Log in</button>\n\n<div class="errors" style="color:red"></div>\n';
+output += 'GitHub Login ID: <input type="text" size="15" /><br>\nGitHub Auth Token: <input type="text" size="40" /><br>\n<button onclick="ko.do_login()">Log in</button>\n\n<div class="errors" style="color:red"></div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

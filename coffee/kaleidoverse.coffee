@@ -28,19 +28,17 @@ window.Kaleidoverse = class Kaleidoverse
     say @colorbox
 
   do_login: ->
-    say "O HAI"
-
-#     $('.errors').html ''
-#     token = $("input[name$='token']").val()
-#     login = $("input[name$='login']").val()
-#     say "#{token} -- #{login}"
-#     @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
-#     @error "GitHub Login Id value is required" unless login.length > 0
-#     state =
-#       token: token
-#       login: login
-#     $.cookie 'state', state,
-#       path: '/'
+    $('.errors').html ''
+    token = $("input[name$='token']").val()
+    login = $("input[name$='login']").val()
+    say "token: #{token} -- login: #{login}"
+    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+    @error "GitHub Login Id value is required" unless login.length > 0
+    state =
+      token: token
+      login: login
+    $.cookie 'state', state,
+      path: '/'
 
   do_logout: ->
     @colorbox.close()
@@ -61,7 +59,6 @@ window.Kaleidoverse = class Kaleidoverse
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse
-  console.log ko
   ko.run()
 
 # vim: set sw=2 lisp:
