@@ -51,8 +51,7 @@ window.Kaleidoverse = class Kaleidoverse
     @repo = @github.getRepo @github_owner, @github_repo
     @repo.fork (err)=>
       if err
-        window.err = err
-        @error err.message
+        @error JSON.parse(err.request.response).message
       else
         $.colorbox.close()
         @log "Successfully forked '#{@github_owner}/#{@github_repo}'"

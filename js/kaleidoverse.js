@@ -74,8 +74,7 @@
       this.repo = this.github.getRepo(this.github_owner, this.github_repo);
       return this.repo.fork(function(err) {
         if (err) {
-          window.err = err;
-          return _this.error(err.message);
+          return _this.error(JSON.parse(err.request.response).message);
         } else {
           $.colorbox.close();
           return _this.log("Successfully forked '" + _this.github_owner + "/" + _this.github_repo + "'");
