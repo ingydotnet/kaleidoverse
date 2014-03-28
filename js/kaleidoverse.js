@@ -30,12 +30,13 @@
     };
 
     Kaleidoverse.prototype.lightbox = function(view) {
-      return this.colorbox = $.colorbox({
+      this.colorbox = $.colorbox({
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
         width: '50%',
         closeButton: false
       });
+      return say(this.colorbox);
     };
 
     Kaleidoverse.prototype.do_login = function() {

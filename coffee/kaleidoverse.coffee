@@ -25,6 +25,7 @@ window.Kaleidoverse = class Kaleidoverse
       height: '50%'
       width: '50%'
       closeButton: false
+    say @colorbox
 
   do_login: ->
     say "O HAI"
