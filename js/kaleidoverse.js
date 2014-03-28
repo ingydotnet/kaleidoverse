@@ -40,7 +40,7 @@
 
     Kaleidoverse.prototype.do_token_login = function() {
       var login, state, token;
-      $('.errorsx'.html(''));
+      $('.errors'.html(''));
       token = $("input[name$='token']").val() || '';
       login = $("input[name$='login']").val() || '';
       say("1 token: " + token + " -- login: " + login);
