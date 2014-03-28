@@ -38,7 +38,7 @@
       });
     };
 
-    Kaleidoverse.prototype.do_token_login = function() {
+    Kaleidoverse.prototype.do_login = function() {
       return say("O HAI");
     };
 

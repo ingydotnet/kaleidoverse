@@ -26,8 +26,9 @@ window.Kaleidoverse = class Kaleidoverse
       width: '50%'
       closeButton: false
 
-  do_token_login: ->
+  do_login: ->
     say "O HAI"
+
 #     $('.errors').html ''
 #     token = $("input[name$='token']").val()
 #     login = $("input[name$='login']").val()
