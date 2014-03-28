@@ -26,12 +26,14 @@
     };
 
     Kaleidoverse.prototype.display = function(view, data) {
-      return $('.primary-content').html(Jemplate.process(view + '.html', data));
+      return $('.primary-content').html(Jemplate.process("" + view + ".html", data));
     };
 
-    Kaleidoverse.prototype.lightbox = function(name) {
+    Kaleidoverse.prototype.lightbox = function(view) {
       return $.colorbox({
-        html: "<h1>Welcome " + name + "</h1>"
+        html: Jemplate.process("" + view + ".html"),
+        height: '50%',
+        width: '50%'
       });
     };
 

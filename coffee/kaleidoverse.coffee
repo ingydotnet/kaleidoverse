@@ -17,10 +17,13 @@ window.Kaleidoverse = class Kaleidoverse
       @display 'login'
 
   display: (view, data)->
-    $('.primary-content').html Jemplate.process view + '.html', data
+    $('.primary-content').html Jemplate.process "#{view}.html", data
 
-  lightbox: (name)->
-    $.colorbox({html:"<h1>Welcome #{name}</h1>"})
+  lightbox: (view)->
+    $.colorbox
+      html: Jemplate.process "#{view}.html"
+      height: '50%'
+      width: '50%'
 
   do_logout: ->
     $.removeCookie 'state',
