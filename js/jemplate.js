@@ -1965,12 +1965,12 @@ Jemplate.templateMap['login.html'] = function(context) {
     var output = '';
 
     try {
-//line 5 "login.html"
+//line 11 "login.html"
 
 // WRAPPER
 output += (function() {
     var output = '';
-output += '\n<button onclick="ko.lightbox(\'token_login\')">GitHub Token Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">GitHub OAuth2 Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">Google OAuth2 Login</button><br/>\n';;
+output += '\n<p>\nWelcome to the Kaleidoverse. A 3 dimensional wonderment of modern software development.\n</p>\n<p>\nSelect one of the following simple login methods:\n</p>\n<button onclick="ko.lightbox(\'token_login\')">GitHub Token Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">GitHub OAuth2 Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">Google OAuth2 Login</button><br/>\n';;
     return context.include('layout.html', { 'content': output });
 })();
 
