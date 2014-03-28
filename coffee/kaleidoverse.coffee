@@ -28,8 +28,8 @@ window.Kaleidoverse = class Kaleidoverse
 
   do_token_login: ->
     $('.errors').html ''
-    token = $("input[name$='token']").val()
-    login = $("input[name$='login']").val()
+    token = $("input[name$='token']").val() || ''
+    login = $("input[name$='login']").val() || ''
     say "token: #{token} -- login: #{login}"
     @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
     @error "GitHub Login Id value is required" unless login.length > 0
