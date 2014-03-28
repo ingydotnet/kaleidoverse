@@ -3,7 +3,11 @@
 - Q: How to trigger gh-pages build after forking kaleidoverse repo (which already
   has a gh-pages branch).
   - http://stackoverflow.com/questions/8587321/github-pages-in-forked-repo
+  - A: need to make a push to the remote gh-pages branch
 - Q: How to register a GitHub app?
   - A: https://github.com/settings/applications/new
 - Q: How to register a GitHub app programatically (API)?
+  - I don't think this is in the v3 API (but not sure yet)
+  - Not really needed unless we want to use OAUTH2
 - Q: Do we even need a master branch?
+  - I really don't think so. Let's delete it.
