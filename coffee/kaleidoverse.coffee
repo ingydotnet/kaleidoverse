@@ -20,15 +20,20 @@ window.Kaleidoverse = class Kaleidoverse
     $('.primary-content').html Jemplate.process "#{view}.html", data
 
   lightbox: (view)->
-    $.colorbox
+    @colorbox = $.colorbox
       html: Jemplate.process "#{view}.html"
       height: '50%'
       width: '50%'
 
   do_token_login: ->
+    $('.errors').html ''
+    token = $("input[name$='token']").val()
+    login = $("input[name$='login']").val()
+    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+    @error "GitHub Login Id value is required" unless login.length > 0
     state =
-      token: '1234567890'
-      login: 'ingydotnet'
+      token: token
+      login: login
     $.cookie 'state', state,
       path: '/'
 
@@ -45,6 +50,8 @@ window.Kaleidoverse = class Kaleidoverse
       else
         alert "You Forked Me!"
 
+  error: (message)->
+    $('.errors').append "<p>#{message}</p>"
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse

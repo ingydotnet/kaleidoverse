@@ -30,7 +30,7 @@
     };
 
     Kaleidoverse.prototype.lightbox = function(view) {
-      return $.colorbox({
+      return this.colorbox = $.colorbox({
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
         width: '50%'
@@ -38,10 +38,19 @@
     };
 
     Kaleidoverse.prototype.do_token_login = function() {
-      var state;
+      var login, state, token;
+      $('.errors').html('');
+      token = $("input[name$='token']").val();
+      login = $("input[name$='login']").val();
+      if (!token.match(/^\S{40}$/)) {
+        this.error("GitHub Auth Token value is required");
+      }
+      if (!(login.length > 0)) {
+        this.error("GitHub Login Id value is required");
+      }
       state = {
-        token: '1234567890',
-        login: 'ingydotnet'
+        token: token,
+        login: login
       };
       return $.cookie('state', state, {
         path: '/'
@@ -64,6 +73,10 @@
           return alert("You Forked Me!");
         }
       });
+    };
+
+    Kaleidoverse.prototype.error = function(message) {
+      return $('.errors').append("<p>" + message + "</p>");
     };
 
     return Kaleidoverse;
