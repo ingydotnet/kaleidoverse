@@ -41,7 +41,6 @@ window.Kaleidoverse = class Kaleidoverse
       path: '/'
 
   do_logout: ->
-    @colorbox.close()
     $.removeCookie 'state',
       path: '/'
     @run()

@@ -60,7 +60,6 @@
     };
 
     Kaleidoverse.prototype.do_logout = function() {
-      this.colorbox.close();
       $.removeCookie('state', {
         path: '/'
       });
