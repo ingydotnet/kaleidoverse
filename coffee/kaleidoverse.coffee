@@ -28,7 +28,7 @@ window.Kaleidoverse = class Kaleidoverse
 
 
   do_token_login: ->
-    $ '.errors' .html ''
+    $ '.errorsx' .html ''
     token = $("input[name$='token']").val() || ''
     login = $("input[name$='login']").val() || ''
     say "1 token: #{token} -- login: #{login}"
