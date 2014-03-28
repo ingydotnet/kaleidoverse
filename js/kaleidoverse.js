@@ -38,7 +38,7 @@
       });
     };
 
-    Kaleidoverse.prototype.do_login = function() {
+    Kaleidoverse.prototype.do_token_login = function() {
       var login, state, token;
       $('.errors').html('');
       token = $("input[name$='token']").val();
