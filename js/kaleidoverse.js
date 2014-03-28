@@ -8,10 +8,10 @@
       $.cookie.json = true;
       this.github_owner = 'veradox';
       this.github_repo = 'kaleidoverse';
-      this.state = $.cookie('state');
     }
 
     Kaleidoverse.prototype.run = function() {
+      this.state = $.cookie('state');
       if (this.state) {
         this.display('main', {
           'state': this.state
@@ -57,9 +57,10 @@
           token: token,
           login: login
         };
-        return $.cookie('state', state, {
+        $.cookie('state', state, {
           path: '/'
         });
+        return this.run();
       }
     };
 
@@ -67,7 +68,6 @@
       $.removeCookie('state', {
         path: '/'
       });
-      this.state = $.cookie('state');
       return this.run();
     };
 

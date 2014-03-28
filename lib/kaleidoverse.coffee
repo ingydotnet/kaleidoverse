@@ -4,9 +4,9 @@ window.Kaleidoverse = class Kaleidoverse
     $.cookie.json = true
     @github_owner = 'veradox'
     @github_repo = 'kaleidoverse'
-    @state = $.cookie 'state'
 
   run: ->
+    @state = $.cookie 'state'
     if @state
       @display 'main',
         'state': @state
@@ -26,7 +26,6 @@ window.Kaleidoverse = class Kaleidoverse
       width: '50%'
       closeButton: false
 
-
   do_token_login: ->
     @clear_errors()
     login = $("input[name$='login']").val() || ''
@@ -42,12 +41,11 @@ window.Kaleidoverse = class Kaleidoverse
         login: login
       $.cookie 'state', state,
         path: '/'
-
+      @run()
 
   do_logout: ->
     $.removeCookie 'state',
       path: '/'
-    @state = $.cookie 'state'
     @run()
 
   do_fork: ->
