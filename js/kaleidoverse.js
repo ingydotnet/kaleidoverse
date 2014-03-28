@@ -63,6 +63,7 @@
       $.removeCookie('state', {
         path: '/'
       });
+      this.state = $.cookie('state');
       return this.run();
     };
 

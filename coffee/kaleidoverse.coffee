@@ -43,6 +43,7 @@ window.Kaleidoverse = class Kaleidoverse
   do_logout: ->
     $.removeCookie 'state',
       path: '/'
+    @state = $.cookie 'state'
     @run()
 
   do_fork: ->
