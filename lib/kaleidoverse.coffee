@@ -55,7 +55,7 @@ window.Kaleidoverse = class Kaleidoverse
         self.error err
       else
         $.colorbox.close()
-        self.log "Successfully forked '#{@github_owner}/#{@github_repo}'"
+        self.log "Successfully forked '#{self.github_owner}/#{self.github_repo}'"
 
   clear_errors: ->
     $('.errors').html ''

@@ -78,7 +78,7 @@
           return self.error(err);
         } else {
           $.colorbox.close();
-          return self.log("Successfully forked '" + this.github_owner + "/" + this.github_repo + "'");
+          return self.log("Successfully forked '" + self.github_owner + "/" + self.github_repo + "'");
         }
       });
     };
