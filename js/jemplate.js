@@ -1970,7 +1970,7 @@ Jemplate.templateMap['login.html'] = function(context) {
 // WRAPPER
 output += (function() {
     var output = '';
-output += '\n<button onclick="ko.lightbox(\'token_login\')">GitHub Token Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">GitHub OAuth2 Login</button>\n<button onclick="alert(\'This login method is not ready yet\')">Google OAuth2 Login</button>\n';;
+output += '\n<button onclick="ko.lightbox(\'token_login\')">GitHub Token Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">GitHub OAuth2 Login</button><br/>\n<button onclick="alert(\'This login method is not ready yet\')">Google OAuth2 Login</button><br/>\n';;
     return context.include('layout.html', { 'content': output });
 })();
 
