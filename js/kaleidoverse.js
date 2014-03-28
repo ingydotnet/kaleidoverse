@@ -72,7 +72,7 @@
 
   window.kaleidoverse = function() {
     window.ko = new Kaleidoverse;
-    say(ko);
+    console.log(ko);
     return ko.run();
   };
 
