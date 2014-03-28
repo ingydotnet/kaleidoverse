@@ -48,7 +48,7 @@ window.Kaleidoverse = class Kaleidoverse
     @run()
 
   do_fork: ->
-    @repo = @github.getRepo @github_owner @github_repo
+    @repo = @github.getRepo @github_owner, @github_repo
     @repo.fork (err)->
       if err
         say err

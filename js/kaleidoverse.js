@@ -70,7 +70,7 @@
     };
 
     Kaleidoverse.prototype.do_fork = function() {
-      this.repo = this.github.getRepo(this.github_owner(this.github_repo));
+      this.repo = this.github.getRepo(this.github_owner, this.github_repo);
       return this.repo.fork(function(err) {
         if (err) {
           return say(err);
