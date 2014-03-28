@@ -70,13 +70,14 @@
     };
 
     Kaleidoverse.prototype.do_fork = function() {
+      var _this = this;
       this.repo = this.github.getRepo(this.github_owner, this.github_repo);
       return this.repo.fork(function(err) {
         if (err) {
-          return this.error(err);
+          return _this.error(err);
         } else {
           $.colorbox.close();
-          return this.log("Successfully forked '" + this.github_owner + "/" + this.github_repo + "'");
+          return _this.log("Successfully forked '" + _this.github_owner + "/" + _this.github_repo + "'");
         }
       });
     };
