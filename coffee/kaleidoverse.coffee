@@ -28,11 +28,11 @@ window.Kaleidoverse = class Kaleidoverse
 
 
   do_token_login: ->
-    @clear()
+    @clear_errors()
     login = $("input[name$='login']").val() || ''
     token = $("input[name$='token']").val() || ''
     @error "GitHub Login Id value is required" unless login.length > 0
-    @error "GitHub Auth Token value is required" unless token.match /^\S{40}$/
+    @error "GitHub Auth Token value is required" unless token.length > 0
     if @errors
       $("button[name$='login']").click @do_token_login
     else
@@ -58,7 +58,7 @@ window.Kaleidoverse = class Kaleidoverse
       else
         alert "You Forked Me!"
 
-  clear: ->
+  clear_errors: ->
     $('.errors').html ''
     @errors = false
 

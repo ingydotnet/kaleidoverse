@@ -40,13 +40,13 @@
 
     Kaleidoverse.prototype.do_token_login = function() {
       var login, state, token;
-      this.clear();
+      this.clear_errors();
       login = $("input[name$='login']").val() || '';
       token = $("input[name$='token']").val() || '';
       if (!(login.length > 0)) {
         this.error("GitHub Login Id value is required");
       }
-      if (!token.match(/^\S{40}$/)) {
+      if (!(token.length > 0)) {
         this.error("GitHub Auth Token value is required");
       }
       if (this.errors) {
@@ -82,7 +82,7 @@
       });
     };
 
-    Kaleidoverse.prototype.clear = function() {
+    Kaleidoverse.prototype.clear_errors = function() {
       $('.errors').html('');
       return this.errors = false;
     };
