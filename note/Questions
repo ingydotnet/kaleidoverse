@@ -4,6 +4,9 @@
   has a gh-pages branch).
   - http://stackoverflow.com/questions/8587321/github-pages-in-forked-repo
   - A: need to make a push to the remote gh-pages branch
+    - git hub fork veradox/kaleidoverse; git hub clone kaleidoverse; cd kaleidoverse;
+      git checkout gh-pages; perl -pi -E 's/create: .*/create: ${\time}/' .kaleidoverse.yml;
+      git commit -am 'New kaleidoverse fork'; git push origin gh-pages
 - Q: How to register a GitHub app?
   - A: https://github.com/settings/applications/new
 - Q: How to register a GitHub app programatically (API)?
