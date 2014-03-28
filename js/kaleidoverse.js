@@ -38,11 +38,7 @@
     };
 
     Kaleidoverse.prototype.do_token_login = function() {
-      var login, token;
-      $('.errors').html('');
-      token = $("input[name$='token']").val();
-      login = $("input[name$='login']").val();
-      return say("" + token + " -- " + login);
+      return say("O HAI");
     };
 
     Kaleidoverse.prototype.do_logout = function() {
