@@ -4,26 +4,23 @@
 
   window.Kaleidoverse = Kaleidoverse = (function() {
     function Kaleidoverse() {
+      window.say = console.log;
       $.cookie.json = true;
       this.github_owner = 'veradox';
       this.github_repo = 'kaleidoverse';
+      this.state = $.cookie('state');
     }
 
     Kaleidoverse.prototype.run = function() {
-      var login;
-      login = $.cookie('login');
-      if (login) {
+      if (this.state) {
         this.display('main', {
-          'login': login
+          'state': this.state
         });
         return this.github = new Github({
-          token: login.auth_token,
+          token: this.state.auth_token,
           auth: "oauth"
         });
       } else {
-        if ($.url().param('code')) {
-          alert(String($.url()));
-        }
         return this.display('login');
       }
     };
@@ -32,23 +29,14 @@
       return $('.primary-content').html(Jemplate.process(view + '.html', data));
     };
 
-    Kaleidoverse.prototype.do_login = function() {
-      var login, token;
-      window.location = 'https://github.com/login/oauth/authorize?' + 'client_id=fdb1df3dcaddfef441ee;' + 'redirect_uri=https://veradox.github.io/kaleidoverse;' + 'state=unguessable_string';
-      token = $("input[name$='token']").val();
-      if (token) {
-        login = {
-          auth_token: token
-        };
-        $.cookie('login', login, {
-          path: '/'
-        });
-        return this.run();
-      }
+    Kaleidoverse.prototype.lightbox = function(name) {
+      return $.colorbox({
+        html: "<h1>Welcome " + name + "</h1>"
+      });
     };
 
     Kaleidoverse.prototype.do_logout = function() {
-      $.removeCookie('login', {
+      $.removeCookie('state', {
         path: '/'
       });
       return this.run();

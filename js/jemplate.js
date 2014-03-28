@@ -1924,42 +1924,13 @@ Jemplate.templateMap['fork.html'] = function(context) {
     var output = '';
 
     try {
-output += '<div class="main">\n    <h1>Welcome to Kaleidoverse</h1>\n\n    <button onclick="ko.do_fork()">Fork Kaleidoverse</button>\n</div>\n\n';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['login.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div class="main">\n    <h1>Welcome to Kaleidoverse</h1>\n\n    <button onclick="ko.do_login()">Log In via GitHub</button>\n</div>\n\n';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['main.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div class="main">\n    <h1>Welcome to Kaleidoverse</h1>\n\n    <p>Your GitHub token is: <b><tt>';
-//line 4 "main.html"
-output += stash.get(['login', 0, 'auth_token', 0]);
-output += '</tt></b>.</p>\n\n    <p>Try the following:</p>\n    <ul>\n        <li><a href="#" onclick="ko.display(\'fork\')">Fork the Kaleidoverse!</a></li>\n    </ul>\n\n    <br/>\n    <br/>\n\n    <button onclick="ko.do_logout()">Log Out</button>\n</div>\n';
+output += '<p>\nYou have decided to take the bold step forward and govern your very own\nKaleidoverse. Yours will start out just like this one and will be located at\n<a href="http://';
+//line 4 "fork.html"
+output += stash.get('login');
+output += '.github.io/kaleidoverse">http://';
+//line 4 "fork.html"
+output += stash.get('login');
+output += '.github.io/kaleidoverse</a>.\n</p>\n<button onclick="ko.do_fork()">Bravely fork this Kaleidoverse</button>\n<button onclick="ko.cancel_lightbox()">Wimp out</button>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
