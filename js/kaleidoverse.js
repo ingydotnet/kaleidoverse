@@ -33,8 +33,7 @@
       return this.colorbox = $.colorbox({
         html: Jemplate.process("" + view + ".html"),
         height: '50%',
-        width: '50%',
-        closeButton: false
+        width: '50%'
       });
     };
 
