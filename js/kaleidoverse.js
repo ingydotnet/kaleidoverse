@@ -41,7 +41,7 @@
       var state;
       state = {
         token: '1234567890',
-        login: ingydotnet
+        login: 'ingydotnet'
       };
       return $.cookie('state', state, {
         path: '/'

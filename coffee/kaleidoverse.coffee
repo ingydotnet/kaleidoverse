@@ -28,7 +28,7 @@ window.Kaleidoverse = class Kaleidoverse
   do_token_login: ->
     state =
       token: '1234567890'
-      login: ingydotnet
+      login: 'ingydotnet'
     $.cookie 'state', state,
       path: '/'
 
