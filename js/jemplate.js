@@ -1930,7 +1930,7 @@ output += stash.get('login');
 output += '.github.io/kaleidoverse">http://';
 //line 4 "fork.html"
 output += stash.get('login');
-output += '.github.io/kaleidoverse</a>.\n</p>\n<button onclick="ko.do_fork()">Bravely fork this Kaleidoverse</button>\n\n<button onclick="$.colorbox.close()">Wimp out</button>\n';
+output += '.github.io/kaleidoverse</a>.\n</p>\n<button onclick="ko.do_fork()">Bravely fork this Kaleidoverse</button>\n<button onclick="$.colorbox.close()">Wimp out</button>\n\n<div class="errors" style="color:red"></div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -2005,7 +2005,7 @@ output += '.github.com/kaleidoverse">Teleport to your own Kaleidoverse!</a></li>
     return context.include('layout.html', { 'content': output });
 })();
 
-output += '\n';
+output += '\n\n<div class="log" style="color:green"></div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

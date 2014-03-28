@@ -51,9 +51,10 @@ window.Kaleidoverse = class Kaleidoverse
     @repo = @github.getRepo @github_owner, @github_repo
     @repo.fork (err)->
       if err
-        say err
+        @error err
       else
-        alert "You Forked Me!"
+        $.colorbox.close()
+        @log "Successfully forked '#{@github_owner}/#{@github_repo}'"
 
   clear_errors: ->
     $('.errors').html ''
@@ -62,6 +63,9 @@ window.Kaleidoverse = class Kaleidoverse
   error: (message)->
     $('.errors').append "<p>Error: #{message}</p>"
     @errors = true
+
+  log: (message)->
+    $('.log').append "<p>Event: #{message}</p>"
 
 window.kaleidoverse = ->
   window.ko = new Kaleidoverse

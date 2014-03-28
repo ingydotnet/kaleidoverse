@@ -73,9 +73,10 @@
       this.repo = this.github.getRepo(this.github_owner, this.github_repo);
       return this.repo.fork(function(err) {
         if (err) {
-          return say(err);
+          return this.error(err);
         } else {
-          return alert("You Forked Me!");
+          $.colorbox.close();
+          return this.log("Successfully forked '" + this.github_owner + "/" + this.github_repo + "'");
         }
       });
     };
@@ -88,6 +89,10 @@
     Kaleidoverse.prototype.error = function(message) {
       $('.errors').append("<p>Error: " + message + "</p>");
       return this.errors = true;
+    };
+
+    Kaleidoverse.prototype.log = function(message) {
+      return $('.log').append("<p>Event: " + message + "</p>");
     };
 
     return Kaleidoverse;
